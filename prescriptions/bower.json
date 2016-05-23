@@ -1,0 +1,22 @@
+{
+  "name": "prescriptionManagement",
+  "description": "Emami Frank Ross - Prescription Managment Portal",
+  "main": "",
+  "authors": [
+    "debayansen <debayan.s@emamifrankross.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-material": "^1.0.9"
+  }
+}

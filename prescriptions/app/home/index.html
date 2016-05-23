@@ -1,0 +1,27 @@
+<div class="" ng-controller='homeCtrl'>
+    {{message}}
+
+    <md-whiteframe class="bodySection md-whiteframe-2dp" flex-xs flex-sm flex-gt-sm flex-lg layout layout-align="center center">
+        <div ng-controller="cityList">
+            <h1>List of Cities with Warehouses:</h1><br/>
+            <ul>
+                <li ng-repeat='city in myWelcome.cities track by $index'>
+                City: {{city.name}} Warehouse-Code: {{city.warehouse_code}}<br/> Contact No.: {{city.customer_care_number}}<br/><br/>
+                </li>
+            </ul>
+        </div>
+    </md-whiteframe>
+
+</div>
+
+<!--
+<md-whiteframe class="bodySection md-whiteframe-2dp" flex-xs flex-sm flex-gt-sm flex-lg layout layout-align="center center">
+    <div ng-controller="cityList">
+        <h1>List of Cities with Warehouses:</h1><br/>
+        <ul>
+            <li ng-repeat='city in myWelcome.cities track by $index'>
+            City: {{city.name}} Warehouse-Code: {{city.warehouse_code}}<br/> Contact No.: {{city.customer_care_number}}<br/><br/>
+            </li>
+        </ul>
+    </div>
+</md-whiteframe> -->
