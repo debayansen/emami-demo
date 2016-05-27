@@ -1,7 +1,5 @@
-function(){
-    angular.module('frankross',['ngMaterial','ngRoute'])
-        .controller('aboutCtrl', function($scope) {
-            $scope.message = 'Look! You are here in the About Us page.';
-        });
-
-}()
+// angular
+    // .module('aboutUs',[])
+    // .controller('aboutUsCtrl', function($scope) {
+    //     $scope.message = 'Look! I are in the About Us page.';
+    // });

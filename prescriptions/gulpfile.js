@@ -8,7 +8,6 @@ var gulp = require('gulp'),
 
 
 // Named Tasks
-
     //For scripts
     gulp.task('scripts',function(){
         gulp.src('assets/js/*.js')
@@ -19,7 +18,6 @@ var gulp = require('gulp'),
 
     });
 
-
     //For Styles
     gulp.task('styles',function(){
         gulp.src('assets/css/**/*.scss')
@@ -27,9 +25,6 @@ var gulp = require('gulp'),
             .pipe(gulp.dest('assets/css/'));
         console.log("Styles have been compressed and checked.");
     });
-
-
-
     // gulp.task();
     // gulp.task();
 
