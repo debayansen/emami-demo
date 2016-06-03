@@ -1,37 +1,33 @@
+'use strict';
+
 angular.module("frankross",['ngRoute'])
-    .config(function($routeProvider,$locationProvider){
-        $routeProvider
-            .when('/', {
-                templateUrl : 'home/index.html',
-                controller  : 'homeCtrl'
-            })
-            .when('/aboutUs', {
-                templateUrl : 'aboutus/index.html',
-                controller  : 'aboutUsCtrl'
-            })
-            .when('/contactUs', {
-                templateUrl : 'contactus/index.html',
-                controller  : 'contactUsCtrl'
-            })
-            .when('/contactUs', {
-                templateUrl : 'contactus/index.html',
-                controller  : 'contactUsCtrl'
-            })
-            .when('/contactUs', {
-                templateUrl : 'contactus/index.html',
-                controller  : 'contactUsCtrl'
-            })
-            .when('/contactUs', {
-                templateUrl : 'contactus/index.html',
-                controller  : 'contactUsCtrl'
-            })
-            .when('/contactUs', {
-                templateUrl : 'contactus/index.html',
-                controller  : 'contactUsCtrl'
-            })
-            .otherwise({
-                redirectTo: '/'
-            });
-        $locationProvider.html5mode(true);
-    });
- 
+        .config(function($routeProvider,$locationProvider){
+                    $routeProvider.when('/', {
+                            templateUrl : 'app/home/index.html',
+                            controller  : 'homeCtrl'
+                        })
+                        .when('/prescriptions', {
+                            // controller  : 'app/aboutus/aboutUsCtrl',
+                            templateUrl : 'app/prescriptions/index.html'
+                        })
+                        .when('/healthtips', {
+                            // controller  : 'app/aboutus/aboutUsCtrl',
+                            templateUrl : 'app/healthtips/index.html'
+                        })
+                        .when('/prescriptions', {
+                            // controller  : 'app/aboutus/aboutUsCtrl',
+                            templateUrl : 'app/prescriptions/index.html'
+                        })
+                        .when('/aboutUs', {
+                            controller  : 'aboutUsCtrl',
+                            templateUrl : 'app/aboutus/index.html'
+                        })
+                        .when('/contactUs', {
+                            controller  : 'contactUsCtrl',
+                            templateUrl : 'app/contactus/index.html'
+                        })
+                        .otherwise({
+                            redirectTo: '/'
+                        });
+                    $locationProvider.html5Mode(true);
+                });

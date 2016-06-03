@@ -1,21 +1,59 @@
-(function(){
-    angular
-    .module('frankross',['ngMaterial','ngRoute','home', 'aboutUs', 'contactUs'])
-    .directive('frHeader', function(){
-        //Header directive
-        return{
-            restrict   : 'E',
-            templateUrl: 'app/home/partials/header.html'
-        };
-    })
-    .directive('frFooter', function(){
-        //Footer directive
-        return{
-            restrict   : 'E',
-            templateUrl: 'app/home/partials/footer.html'
-        };
-    })
-    .controller('userRegister',["$scope","$http", function($scope,$http){ // FOR User Registraation
+// (function(){
+    var frApp = angular.module('frankross',['ngMaterial','ngRoute','home', 'aboutUs', 'contactUs']);
+    var login = angular.module("loginModule",[]);
+    var home = angular.module('home',[]);
+    var about = angular.module('aboutUs',[]);
+    var contact = angular.module('contactUs',[]);
+
+
+    frApp.directive('frHeader', function(){
+            //Header directive
+            return{
+                restrict   : 'E',
+                templateUrl: 'app/home/partials/header.html'
+            };
+        })
+        .directive('frFooter', function(){
+            //Footer directive
+            return{
+                restrict   : 'E',
+                templateUrl: 'app/home/partials/footer.html'
+            };
+        })
+        .config(function($routeProvider,$locationProvider){
+            $routeProvider
+                .when('/', {
+                    templateUrl : 'app/home/index.html',
+                    controller  : 'homeCtrl'
+                })
+                .when('/prescriptions', {
+                    // controller  : 'app/aboutus/aboutUsCtrl',
+                    templateUrl : 'app/prescriptions/index.html'
+                })
+                .when('/healthtips', {
+                    // controller  : 'app/aboutus/aboutUsCtrl',
+                    templateUrl : 'app/healthtips/index.html'
+                })
+                .when('/prescriptions', {
+                    // controller  : 'app/aboutus/aboutUsCtrl',
+                    templateUrl : 'app/prescriptions/index.html'
+                })
+                .when('/aboutUs', {
+                    controller  : 'aboutUsCtrl',
+                    templateUrl : 'app/aboutus/index.html'
+                })
+                .when('/contactUs', {
+                    controller  : 'contactUsCtrl',
+                    templateUrl : 'app/contactus/index.html'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+            $locationProvider.html5Mode(true);
+        })
+        ;
+
+    login.controller('userRegister',["$scope","$http", function($scope,$http){ // FOR User Registraation
         var details = {
             "name": $scope.user.name,
             "email": $scope.user.email,
@@ -99,99 +137,66 @@
             }
         };
     }])
-    .controller('userLogin',["$scope","$http", function($scope, $http){ // FOR SIGIN API + details
-        // $scope.email = "user@examle.com";
-        // $scope.pwd = "password";
-        $scope.greet = function(){
-            $http({
-                method: 'POST',
-                url: '/api/v4/login',
-                headers: {
-                    "Accept":"application/json"
-                },
-                data:{
-                    "user":{
-                        "email": $scope.email,
-                        "password":$scope.pwd
+        .controller('userLogin',["$scope","$http", function($scope, $http){ // FOR SIGIN API + details
+            // $scope.email = "user@examle.com";
+            // $scope.pwd = "password";
+            $scope.greet = function(){
+                $http({
+                    method: 'POST',
+                    url: '/api/v4/login',
+                    headers: {
+                        "Accept":"application/json"
+                    },
+                    data:{
+                        "user":{
+                            "email": $scope.email,
+                            "password":$scope.pwd
+                        }
                     }
-                }
-            })
-            .then(
-                function(response){
-                    $scope.status = response.status;
-                    $scope.data = response.data;
-                    if($scope.status == 201){
-                        console.log("Login Successfull");
-                        console.log($scope.data);
-                        var user = {
-                            "email":$scope.email,
-                            "pwd":$scope.pwd,
-                            "auth_token":$scope.data.user.auth_token
-                        };
-                        // console.log(user);
-                        // $scope.result = details(user.auth_token);
+                })
+                .then(
+                    function(response){
+                        $scope.status = response.status;
+                        $scope.data = response.data;
+                        if($scope.status == 201){
+                            console.log("Login Successfull");
+                            console.log($scope.data);
+                            var user = {
+                                "email":$scope.email,
+                                "pwd":$scope.pwd,
+                                "auth_token":$scope.data.user.auth_token
+                            };
+                            // console.log(user);
+                            // $scope.result = details(user.auth_token);
+                        }
+                        else{
+                            console.log("Login Denied!!!");
+                        }
                     }
-                    else{
-                        console.log("Login Denied!!!");
+                );
+            };
+            var details = function(code){
+                console.log(code);
+                var data, status;
+                $http({
+                    method: 'GET',
+                    url: '/api/v5/user',
+                    headers: {
+                         "X-Auth-Token": code
                     }
-                }
-            );
-        };
-        var details = function(code){
-            console.log(code);
-            var data, status;
-            $http({
-                method: 'GET',
-                url: '/api/v5/user',
-                headers: {
-                     "X-Auth-Token": code
-                }
-            })
-            .then(function(response){
-                status = response.status;
-                data = response.data;
-                console.log(data);
-                console.log(status);
-            });
-            return data;
-        };
-    }])
-    .config(function($routeProvider,$locationProvider){
-        $routeProvider
-            .when('/', {
-                templateUrl : 'app/home/index.html',
-                controller  : 'homeCtrl'
-            })
-            .when('/prescriptions', {
-                // controller  : 'app/aboutus/aboutUsCtrl',
-                templateUrl : 'app/prescriptions/index.html'
-            })
-            .when('/healthtips', {
-                // controller  : 'app/aboutus/aboutUsCtrl',
-                templateUrl : 'app/healthtips/index.html'
-            })
-            .when('/prescriptions', {
-                // controller  : 'app/aboutus/aboutUsCtrl',
-                templateUrl : 'app/prescriptions/index.html'
-            })
-            .when('/aboutUs', {
-                controller  : 'aboutUsCtrl',
-                templateUrl : 'app/aboutus/index.html'
-            })
-            .when('/contactUs', {
-                controller  : 'contactUsCtrl',
-                templateUrl : 'app/contactus/index.html'
-            })
-            .otherwise({
-                redirectTo: '/'
-            });
-        $locationProvider.html5Mode(true);
-    })
-    ;
+                })
+                .then(function(response){
+                    status = response.status;
+                    data = response.data;
+                    console.log(data);
+                    console.log(status);
+                });
+                return data;
+            };
+        }]);
 
-    angular
-        .module('home',[])
-        .controller('homeCtrl', function($scope) {
+
+    home.controller('homeCtrl', function($scope) {
             $scope.message = '';
             $scope.message += 'Look! You are in the Home page.';
         })
@@ -272,17 +277,14 @@
         })
         ;
 
-    angular
-        .module('aboutUs',[])
-        .controller('aboutUsCtrl', function($scope) {
+    about.controller('aboutUsCtrl', function($scope) {
             $scope.message = '';
             $scope.message += 'Look! I are in the About Us page.';
         });
 
-    angular
-        .module('contactUs',[])
-        .controller('contactUsCtrl', function($scope) {
+
+    contact.controller('contactUsCtrl', function($scope) {
             $scope.message = '';
             $scope.message += 'Look! I am an Contact Us page.';
         });
-})()
+// })()
