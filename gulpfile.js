@@ -2,8 +2,9 @@
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
-    sasslint = require('gulp-sass-lint'),
-    jshint = require('gulp-jshint')
+    // sasslint = require('gulp-sass-lint'),s
+    // jshint = require('gulp-jshint'),
+    plumber = require('gulp-plumber'),
     watch = require('gulp-watch');
 
 
@@ -11,7 +12,8 @@ var gulp = require('gulp'),
     //For scripts
     gulp.task('scripts',function(){
         gulp.src('assets/js/*.js')
-            .pipe(jshint())
+            .pipe(plumber())
+            // .pipe(jshint())
             .pipe(uglify())
             .pipe(gulp.dest('assets/js/'));
         console.log("Scripts have been compressed and checked.");
@@ -21,16 +23,23 @@ var gulp = require('gulp'),
     //For Styles
     gulp.task('styles',function(){
         gulp.src('assets/css/**/*.scss')
-            .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+            .pipe(plumber())
+            // .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+            .pipe(sass())
             .pipe(gulp.dest('assets/css/'));
         console.log("Styles have been compressed and checked.");
     });
-    // gulp.task();
+
+
+    //For Templates - Jade
+    // gulp.task("template", function(){
+    //
+    // });
     // gulp.task();
 
 // Watch Tasks
     gulp.task('watch', function(){
-        gulp.watch('assets/js/*.js',['scripts']);
+        // gulp.watch('assets/js/*.js',['scripts']);
         gulp.watch('assets/css/**/*.css',['styles']);
         // gulp.watch('assets/js/*.js',['scripts']);
 
@@ -38,4 +47,5 @@ var gulp = require('gulp'),
     });
 
 // Default Task
-    gulp.task('default',['scripts', 'styles', 'watch']);
+// gulp.task('default',['scripts', 'styles', 'watch']);
+gulp.task('default',['styles', 'watch']);

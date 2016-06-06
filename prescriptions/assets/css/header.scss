@@ -1,0 +1,30 @@
+.fr-header{
+
+	 .banner{
+		 a{
+			 text-decoration: none;
+			 img{
+				 width: 100%;
+			 }
+		 }
+	 }
+	 .menuLinks{
+         padding: 5px;
+		 .bars{
+			 display: hidden;
+		 }
+		 .topmenu,.bottommenu{
+			 ul{
+				 text-decoration: none;
+				 display: inline-block;
+				 li{
+                     margin: 0px 15px;
+					 display: inline-block;
+                     a{
+                         text-decoration: none;
+                     }
+				 }
+			 }
+		 }
+	 }
+}

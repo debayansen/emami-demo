@@ -6,6 +6,7 @@ $primaryFontSize : 18px;
 $secondaryFontSize : 16px;
 $thirdFontSize : 14px;
 
+// @import ".scss";
 
 *{
 	margin: 0px;
@@ -14,51 +15,14 @@ $thirdFontSize : 14px;
 body{
 	font-family: $primaryFontFamily,$secondaryFontFamily,$thirdFontFamily;
 	font-size: $primaryFontSize;
-}
-fr-header{
-	 .banner{
-		 a{
-			 text-decoration: none;
-			 img{
-				 width: 100%;
-			 }
-		 }
-	 }
-	 .menuLinks{
-		 .bars{
-			 display: hidden;
-		 }
-		 .topmenu{
-			 ul{
-				 text-decoration: none;
-				 display: inline-block;
-				 li{
-					 a{
-						 text-decoration: none;
-					 }
-					 display: inline-block;
-				 }
-			 }
-		 }
-		 .bottommenu{
-			 ul{
-				 text-decoration: none;
-				 display: inline-block;
-				 li{
-					 display: inline-block;
-				 }
-			 }
-		 }
-	 }
 
-}
-fr-footer{
-	.topfooter{
-		background-color: #129271;
-		color: #fff;
+	.wrapper{
+		width: 80%;
+		margin: 0px auto;
+
+		@import "header.scss";
+		@import "footer.scss";
 	}
-	.bottomfooter{
-		background-color: #000;
-		color: #fff;
-	}
+
+
 }
