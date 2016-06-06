@@ -1,0 +1,35 @@
+{
+  "name": "ecommerce",
+  "version": "0.0.0",
+  "description": "Emami FrankRoss - Ecommerce Website",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-sass-lint": "^1.1.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+
+    "prestart": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debayansen/emami-demo.git"
+  },
+  "author": "debayansen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/debayansen/emami-demo/issues"
+  },
+  "homepage": "https://github.com/debayansen/emami-demo#readme"
+}
