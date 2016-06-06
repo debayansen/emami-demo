@@ -1,10 +1,4 @@
-$primaryFontFamily : 'Tahoma';
-$secondaryFontFamily: 'Great Vibes';
-$thirdFontFamily: 'Sans Serif';
-
-$primaryFontSize : 18px;
-$secondaryFontSize : 16px;
-$thirdFontSize : 14px;
+@import "var.scss";
 
 // @import ".scss";
 
@@ -15,6 +9,7 @@ $thirdFontSize : 14px;
 body{
 	font-family: $primaryFontFamily,$secondaryFontFamily,$thirdFontFamily;
 	font-size: $primaryFontSize;
+	color: $primaryFontColor;
 
 	.wrapper{
 		width: 80%;
@@ -25,4 +20,10 @@ body{
 	}
 
 
+}
+
+@media only screen and (max-width:1024px){
+	body .wrapper{
+		width: 100%;
+	}
 }

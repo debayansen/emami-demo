@@ -24,8 +24,8 @@ var gulp = require('gulp'),
     gulp.task('styles',function(){
         gulp.src('assets/css/**/*.scss')
             .pipe(plumber())
-            // .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-            .pipe(sass())
+            .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+            // .pipe(sass())
             .pipe(gulp.dest('assets/css/'));
         console.log("Styles have been compressed and checked.");
     });
@@ -34,7 +34,7 @@ var gulp = require('gulp'),
 // Watch Tasks
     gulp.task('watch', function(){
         // gulp.watch('assets/js/*.js',['scripts']);
-        gulp.watch('assets/css/**/*.css',['styles']);
+        gulp.watch('assets/css/**/*.scss',['styles']);
         // gulp.watch('assets/js/*.js',['scripts']);
 
         console.log("Watcher function completed.");
