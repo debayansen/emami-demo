@@ -7,13 +7,10 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     watch = require('gulp-watch');
 
-
 // Named Tasks
     //For scripts
     gulp.task('scripts',function(){
         gulp.src('assets/js/*.js')
-            .pipe(plumber())
-            // .pipe(jshint())
             .pipe(uglify())
             .pipe(gulp.dest('assets/js/'));
         console.log("Scripts have been compressed and checked.");
@@ -31,15 +28,26 @@ var gulp = require('gulp'),
     });
 
 
-// Watch Tasks
-    gulp.task('watch', function(){
-        // gulp.watch('assets/js/*.js',['scripts']);
-        gulp.watch('assets/css/**/*.css',['styles']);
-        // gulp.watch('assets/js/*.js',['scripts']);
-
-        console.log("Watcher function completed.");
+    //For Templates - Jade
+    gulp.task("template", function(){
+        gulp.src('app/**/*.scss')
+            .pipe(plumber())
+            // .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+            .pipe(jade())
+            .pipe(gulp.dest('assets/templates/'));
     });
 
-// Default Task
-// gulp.task('default',['scripts', 'styles', 'watch']);
-gulp.task('default',['styles', 'watch']);
+
+
+// Watch Tasks
+        gulp.task('watch', function(){
+            // gulp.watch('assets/css/**/*.css',['styles']);
+            // gulp.watch('assets/js/*.js',['scripts']);
+            console.log("Watcher function completed.");
+        });
+
+// Default Tasks
+    gulp.task('default',function(){
+        gulp.watch(['scripts','styles',''watch]);
+        console.log("Gulp Started");
+    });

@@ -1,2 +1,1 @@
-angular.module('fr-ecom',[])
-        .
+angular.module('fr-ecom',[]);

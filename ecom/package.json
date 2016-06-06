@@ -19,8 +19,8 @@
   },
   "scripts": {
     "postinstall": "bower install",
-
-    "prestart": "npm install"
+    "prestart": "npm install",
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
