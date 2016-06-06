@@ -1,1 +1,1 @@
-angular.module('fr-ecom',[]);
+angular.module('fr-ecom',['ngMaterial', 'ngRoute', 'homeCtrl', 'productsCtrl']);
