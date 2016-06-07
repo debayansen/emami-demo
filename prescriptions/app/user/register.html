@@ -1,0 +1,18 @@
+<div class="registerArea" layout flex layout-align='center center' >
+    <div class="registerPanel" layout flex="60" layout-align='center center'>
+        <md-whiteframe class="registerForm md-whiteframe-2dp" flex layout-align="center center" ng-controller='userRegister as user' ng-clock>
+              <label>User Name:</label><input type='text' ng-model='user.name' /><br/>
+              <label>User email:</label><input type='text' ng-model='user.email' /><br/>
+              <label>User password:</label><input type='password' ng-model='user.pwd' /><br/>
+              <label>Confirm password:</label><input type='password' ng-model='user.cpwd' /><br/>
+              <label>User Mobile No.:</label><input type='text' ng-model='user.mob' /><br/>
+              <button ng-click="register()">Register Now</button>
+              <br/>
+              <br/>
+
+              <label>Provide OTP no.:</label><input type='text' ng-model='user.otpID' /><br/>
+              <button ng-click="otpVerify()">Send OTP No.</button>
+              <br/>
+        </md-whiteframe>
+    </div>
+</div>

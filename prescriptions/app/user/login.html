@@ -1,0 +1,17 @@
+<div class="loginArea" layout flex layout-align='center center' ng-controller="userLogin"  ng-clock>
+    <div class="loginPanel" layout flex="50">
+        <md-whiteframe class=" leftArea md-whiteframe-2dp" layout='column' flex="50" layout-align="center center">
+            Sign In Here:<br/>
+            User email:   <input type='text' ng-model="email"/><br/>
+            User password:<input type='password' ng-model="pwd"/><br/>
+            <button ng-click="greet()">Log In</button>
+        </md-whiteframe>
+        <md-whiteframe class="rightArea md-whiteframe-2dp" layout='column' flex="50" layout-align="center center">
+            Sign In using:<br/>
+            <input type='button' value="Facebook" ng-model="email"/><br/>
+            <input type='button' value="Google" ng-model="pwd"/><br/>
+            <!-- <button ng-click="greet()">Log In</button> -->
+            <a href="register">Please click here to register.</a>
+        </md-whiteframe>
+    </div>
+</div>

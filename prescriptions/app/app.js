@@ -1,5 +1,7 @@
+'use strict';
+
 // (function(){
-    var frApp = angular.module('frankross',['ngMaterial','ngRoute','home', 'aboutUs', 'contactUs']);
+    var frApp = angular.module('frankross',['ngMaterial','ngRoute','home', 'aboutUs', 'contactUs', 'loginModule']);
     var login = angular.module("loginModule",[]);
     var home = angular.module('home',[]);
     var about = angular.module('aboutUs',[]);
@@ -27,16 +29,16 @@
                     controller  : 'homeCtrl'
                 })
                 .when('/prescriptions', {
-                    // controller  : 'app/aboutus/aboutUsCtrl',
+                    controller  : 'prescriptionsCtrl',
                     templateUrl : 'app/prescriptions/index.html'
                 })
                 .when('/healthtips', {
-                    // controller  : 'app/aboutus/aboutUsCtrl',
+                    controller  : 'healthCtrl',
                     templateUrl : 'app/healthtips/index.html'
                 })
                 .when('/prescriptions', {
-                    // controller  : 'app/aboutus/aboutUsCtrl',
-                    templateUrl : 'app/prescriptions/index.html'
+                    controller  : 'offersCtrl',
+                    templateUrl : 'app/offers/index.html'
                 })
                 .when('/aboutUs', {
                     controller  : 'aboutUsCtrl',
@@ -45,6 +47,14 @@
                 .when('/contactUs', {
                     controller  : 'contactUsCtrl',
                     templateUrl : 'app/contactus/index.html'
+                })
+                .when('/login', {
+                    controller  : 'userLogin',
+                    templateUrl : 'app/user/login.html'
+                })
+                .when('/register', {
+                    controller  : 'userRegister',
+                    templateUrl : 'app/user/register.html'
                 })
                 .otherwise({
                     redirectTo: '/'
@@ -55,11 +65,11 @@
 
     login.controller('userRegister',["$scope","$http", function($scope,$http){ // FOR User Registraation
             var details = {
-                "name": $scope.user.name,
-                "email": $scope.user.email,
-                "pwd":$scope.user.pwd,
-                "cpwd": $scope.user.cpwd,
-                "mobile": $scope.user.mob
+                "name": $scope.name,
+                "email": $scope.email,
+                "pwd":$scope.pwd,
+                "cpwd": $scope.cpwd,
+                "mobile": $scope.mob
             };
             $scope.register = function(){
                 $http({
@@ -93,7 +103,7 @@
                 confirmPwd(details.pwd,details.cpwd);
                 // console.log(details);
             }
-            console.log($scope.user.otpID);
+            console.log($scope.otpID);
 
             $scope.otpVerify = function(){
                 alert(1);
@@ -193,7 +203,8 @@
                 });
                 return data;
             };
-        }]);
+        }])
+        ;
 
 
     home.controller('homeCtrl', function($scope) {
