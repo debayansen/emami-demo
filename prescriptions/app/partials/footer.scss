@@ -1,0 +1,24 @@
+@import "assets/scss/var.scss";
+
+.fr-footer{
+	// background-color: red;
+	.topfooter{
+		background-color: #129271;
+		color: #fff;
+		ul li{
+			padding: 5px 10px;
+			a{
+   			color: #fff;
+   			text-decoration: none;
+			cursor: pointer;
+   			}
+		}
+
+	}
+	.bottomfooter{
+		padding: 5px;
+		background-color: #000;
+		color: #fff;
+		font-size: 16px;
+	}
+}

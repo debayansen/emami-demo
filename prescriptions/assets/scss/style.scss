@@ -1,6 +1,11 @@
+// @import ".scss";
 @import "var.scss";
 
-// @import ".scss";
+@import "app/partials/header.scss";
+@import "app/partials/footer.scss";
+
+@import "app/user/login.scss";
+@import "app/user/register.scss";
 
 *{
 	margin: 0px;
@@ -15,15 +20,10 @@ body{
 		width: 80%;
 		margin: 0px auto;
 
-		@import "header.scss";
-		@import "footer.scss";
-
-		@import "login.scss";
-		@import "register.scss";
 	}
-
-
 }
+
+
 
 @media only screen and (max-width:1024px){
 	body .wrapper{

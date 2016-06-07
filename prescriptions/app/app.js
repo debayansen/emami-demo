@@ -1,14 +1,14 @@
 'use strict';
 
 // (function(){
-    var frApp = angular.module('frankross',['ngMaterial','ngRoute','home', 'aboutUs', 'contactUs', 'loginModule']);
-    var login = angular.module("loginModule",[]);
-    var home = angular.module('home',[]);
-    var about = angular.module('aboutUs',[]);
-    var contact = angular.module('contactUs',[]);
+angular.module('frankross',['ngMaterial','ngRoute','home', 'aboutUs', 'contactUs', 'loginModule']);
+var login = angular.module("loginModule",[]);
+var home = angular.module('home',[]);
+var about = angular.module('aboutUs',[]);
+var contact = angular.module('contactUs',[]);
 
 
-    frApp.directive('frHeader', function(){
+    angular.module('frankross').directive('frHeader', function(){
             //Header directive
             return{
                 restrict   : 'E',
@@ -21,45 +21,6 @@
                 restrict   : 'E',
                 templateUrl: 'app/partials/footer.html'
             };
-        })
-        .config(function($routeProvider,$locationProvider){
-            $routeProvider
-                .when('/', {
-                    templateUrl : 'app/home/index.html',
-                    controller  : 'homeCtrl'
-                })
-                .when('/prescriptions', {
-                    controller  : 'prescriptionsCtrl',
-                    templateUrl : 'app/prescriptions/index.html'
-                })
-                .when('/healthtips', {
-                    controller  : 'healthCtrl',
-                    templateUrl : 'app/healthtips/index.html'
-                })
-                .when('/prescriptions', {
-                    controller  : 'offersCtrl',
-                    templateUrl : 'app/offers/index.html'
-                })
-                .when('/aboutUs', {
-                    controller  : 'aboutUsCtrl',
-                    templateUrl : 'app/aboutus/index.html'
-                })
-                .when('/contactUs', {
-                    controller  : 'contactUsCtrl',
-                    templateUrl : 'app/contactus/index.html'
-                })
-                .when('/login', {
-                    controller  : 'userLogin',
-                    templateUrl : 'app/user/login.html'
-                })
-                .when('/register', {
-                    controller  : 'userRegister',
-                    templateUrl : 'app/user/register.html'
-                })
-                .otherwise({
-                    redirectTo: '/'
-                });
-            $locationProvider.html5Mode(true);
         })
         ;
 
@@ -206,7 +167,6 @@
         }])
         ;
 
-
     home.controller('homeCtrl', function($scope) {
             $scope.message = '';
             $scope.message += 'Look! You are in the Home page.';
@@ -293,8 +253,8 @@
             $scope.message += 'Look! I are in the About Us page.';
         });
 
-    contact.controller('contactUsCtrl', function($scope) {
-            $scope.message = '';
-            $scope.message += 'Look! I am an Contact Us page.';
-        });
+    // contact.controller('contactUsCtrl', function($scope) {
+    //         $scope.message = '';
+    //         $scope.message += 'Look! I am an Contact Us page.';
+    //     });
 // })()
