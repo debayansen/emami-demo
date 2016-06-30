@@ -1,6 +1,6 @@
 'use strict';
 
-//Required dependencies
+//------------------------------------Required dependencies------------------------------------
 var gulp    = require('gulp'),
     order   = require('gulp-order'),
     uglify  = require('gulp-uglify'),
@@ -14,7 +14,7 @@ var gulp    = require('gulp'),
     autoprefixer = require('gulp-autoprefixer')
     ;
 
-//Named tasks
+//---------------------------Named tasks------------------------------------
 //---------------------------Scripts------------------------------------
 gulp.task('libfiles', function(){
     gulp.src('bower_components/**/*.min.js')
@@ -46,9 +46,6 @@ gulp.task('scripts', function(){
         .pipe(concat('main.js'))
         .pipe(gulp.dest('assets/js/'));
 });
-// gulp.task('scripts', function(){
-//
-// });
 
 //---------------------------Styles-------------------------------------
 gulp.task('sass', function(){
@@ -66,22 +63,25 @@ gulp.task('libstyles', function(){
         .pipe(gulp.dest('assets/css/'));
 });
 
-//---------------------------browserSync--------------------------------
+//---------------------------Image-------------------------------------
+
 
 //---------------------------testing------------------------------------
 
 
+//---------------------------browserSync--------------------------------
 
-//Watch tasks
+
+//---------------------------Watch tasks------------------------------------
 gulp.task('watch', function(){
-    // gulp.watch('src/js/*.js',['scripts']);
-    // gulp.watch('src/css/**/*.scss',['styles']);
-    // gulp.watch('src/css/**/*.scss',['styles']);
-    // gulp.watch('src/templates/**/*.jade',['templates']);
-    // gulp.watch('build/pages/**/*.html',['index']);
+    gulp.watch('assets/js/*.js',['scripts']);
+    gulp.watch('assets/sass/**/*.scss',['sass']);
+    // gulp.watch('assets/images/**/*.scss',['imageCompress']);
+    // gulp.watch('assets/sass/**/*.scss',['']);
+
     console.log("Watch Task completed");
 });
 
-//default tasks
-// gulp.task('default', ['minscripts','styles','scripts','templates','watch']);
+//------------------------------default tasks------------------------------------------------
+// gulp.task('default', ['libscripts','libstyles','scripts','sass','browser-sync','watch']);
 // gulp.task('default', ['minscripts','scripts','minstyles','styles','browser-sync','watch']);
