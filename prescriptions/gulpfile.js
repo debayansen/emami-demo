@@ -1,13 +1,13 @@
 // Required Dependencies here
-var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
-    order = require('gulp-order'),
-    concat = require('gulp-concat');
-    sass = require('gulp-sass'),
-    sasslint = require('gulp-sass-lint'),
-    jshint = require('gulp-jshint'),
+var gulp    = require('gulp'),
+    uglify  = require('gulp-uglify'),
+    order   = require('gulp-order'),
+    concat  = require('gulp-concat');
+    sass    = require('gulp-sass'),
+    sasslint= require('gulp-sass-lint'),
+    jshint  = require('gulp-jshint'),
     plumber = require('gulp-plumber'),
-    watch = require('gulp-watch');
+    watch   = require('gulp-watch');
 
 
 // Named Tasks
@@ -57,4 +57,5 @@ var gulp = require('gulp'),
 
 // Default Task
 // gulp.task('default',['scripts', 'styles', 'watch']);
+// gulp.task('default',['minscripts','mistyles','scripts','styles','watch']);
 gulp.task('default',['styles', 'watch']);

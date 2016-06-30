@@ -1,35 +1,28 @@
 {
-  "name": "ecommerce",
+  "name": "efrwebsite",
   "version": "0.0.0",
-  "description": "Emami FrankRoss - Ecommerce Website",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "bower": "^1.7.9",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.1",
-    "gulp-order": "^1.1.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.3.1",
-    "gulp-sass-lint": "^1.1.1",
-    "gulp-uglify": "^1.5.3",
-    "gulp-watch": "^4.3.5",
-    "jshint": "^2.9.2"
-  },
+  "description": "Emami FrankRoss Ecommerce Website",
+  "main": "index.html",
   "scripts": {
-    "postinstall": "bower install",
-    "prestart": "npm install",
     "test": "gulp"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/debayansen/emami-demo.git"
   },
   "author": "debayansen",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/debayansen/emami-demo/issues"
-  },
-  "homepage": "https://github.com/debayansen/emami-demo#readme"
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-install": "^0.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-watch": "^4.3.8",
+    "jshint": "^2.9.2"
+  }
 }
